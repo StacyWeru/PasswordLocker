@@ -1,4 +1,4 @@
-import user from User
+from user import User
 
 print("Hello!Welcome to Password Locker")
 # print("/n")
@@ -27,9 +27,9 @@ elif select == "login ":
         login = input("Please login with username")
         pass_word = input ("Please enter password")
 
-            if login in user and user[user_name] = pass_word:
+        if login in user and user[user_name] == pass_word:
                  print ("Login successful")
-            else:
+        else:
                 print ("Sorry the account doesn't exit  or maybe wrong password")
             
 
