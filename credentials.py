@@ -1,3 +1,7 @@
+import pyperclip
+import string
+import random
+
 class Credentials:
 
     '''
@@ -50,3 +54,37 @@ class Credentials:
         for credentials in cls.credential_list:
             if credentials.email_address == email_address:
                 return credentials
+
+    def generate_password (self ,size =8 , char = string.ascii_uppercase+string.ascii_lowercase+string.digits):
+
+        generate_password =''.join(random.choice(char) for _ in range(size))
+
+        return generate_password
+
+
+    @classmethod
+    def credentials_exist (cls, user_name):
+        '''
+        Method that checks if a credential exists from the credentials list.
+        Args:
+            user_name: user_name to search if it exists
+        Returns :
+            Boolean: True or false depending if the credentials exists
+        '''
+        for credentials in cls.credential_list:
+            if credentials.user_name == user_name:
+                    return True
+
+        return False
+
+    @classmethod
+    def display_credentials(cls):
+        '''
+        method that returns the credentials list
+        '''
+        return cls.credential_list
+
+
+
+    
+    
